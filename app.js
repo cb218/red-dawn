@@ -1,8 +1,7 @@
-const express = require("express");
-const app = express();
-app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
-});
-app.listen(3000, function () {
-    console.log("Server is running on localhost3000");
-});
+const express = require('express');
+const app = express()
+const port = 3100;
+
+app.get('/', (req, res) => res.send('Welcome!'));
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
