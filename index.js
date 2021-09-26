@@ -3,7 +3,7 @@ const http = require('http');
 const fs = require('fs');
 
 // Server configuration
-const hostname = '18.212.169.46';
+const hostname = '52.71.72.234';
 const port = 3000;
 
 // Render page
