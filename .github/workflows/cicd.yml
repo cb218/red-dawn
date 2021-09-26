@@ -34,10 +34,11 @@ jobs:
     
       # Install project dependencies and build
       - name: Install dependencies and build
-        run: npm install
-        run: npm ci
-        run: npm run build --if present
-        run: npm test
+        run: |
+          npm install
+          npm ci
+          npm run build --if present
+          npm test
 
       # Install AWS CLI 2
       - name: Install AWS CLI 2
