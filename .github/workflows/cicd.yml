@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  buildAndDeploy:
     name: CI Pipeline
     runs-on: ubuntu-latest
 
@@ -16,19 +16,11 @@ jobs:
       matrix:
         node-version: [12.x, 14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-  deploy:
-    name: CD Pipeline
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ['12.x']
         appname: ['aws-codedeploy']
         deploy-group: ['aws-code-deploy']
         s3-bucket: ['red-dawn']
         s3-filename: ['red-dawn-${{ github.sha }}']
 
-    needs: build
     # if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repository
