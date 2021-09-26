@@ -16,10 +16,10 @@ jobs:
       matrix:
         node-version: [12.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        appname: ['aws-codedeploy']
-        deploy-group: ['aws-code-deploy']
-        s3-bucket: ['red-dawn']
-        s3-filename: ['red-dawn-${{ github.sha }}']
+#        appname: ['aws-codedeploy']
+#        deploy-group: ['aws-code-deploy']
+#        s3-bucket: ['red-dawn']
+#        s3-filename: ['red-dawn-${{ github.sha }}']
 
     # if: github.ref == 'refs/heads/main'
     steps:
@@ -33,10 +33,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
     
       # Install project dependencies and build
-      - name: Install dependencies
+      - name: Install dependencies and build
         run: npm install
-      - name: Run build
-        run: npm run build
+        run: npm ci
+        run: npm run build --if present
+        run: npm test
 
       # Install AWS CLI 2
       - name: Install AWS CLI 2
