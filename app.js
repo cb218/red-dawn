@@ -1,22 +1,7 @@
-// Modules
-const http = require('http');
-const fs = require('fs');
+const express = require('express');
+const app = express()
+const port = 3100;
 
-// Server configuration
-const hostname = '52.71.72.234';
-const port = 3000;
+app.get('/', (req, res) => res.send('Welcome!'));
 
-// Render page
-fs.readFile('./index.html', function (err, html) {
-    if (err) {
-        throw err; 
-    }       
-    const server = http.createServer(function(request, response) {  
-        response.writeHeader(200, {"Content-Type": "text/html"});  
-        response.write(html);  
-        response.end();  
-    }).listen(port, hostname, () => {
-    	// Console
-	  	console.log(`Server running at http://${hostname}:${port}/`);
-	});
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
