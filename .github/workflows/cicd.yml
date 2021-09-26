@@ -21,7 +21,6 @@ jobs:
 #        s3-bucket: ['red-dawn']
 #        s3-filename: ['red-dawn-${{ github.sha }}']
 
-    # if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
