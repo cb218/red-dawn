@@ -1,2 +1,2 @@
 # red-dawn
-CEN 6017n Exercise 1
+CEN 6017 Exercise 1
